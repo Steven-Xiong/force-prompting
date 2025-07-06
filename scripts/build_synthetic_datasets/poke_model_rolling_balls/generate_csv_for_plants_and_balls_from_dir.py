@@ -49,7 +49,7 @@ def analyze_video(video_path, backgrounds_json, type):
 
     force = float(fname[fname.index("force")+1])
     force_normalized = (force - EXTREMAL_FORCES[type]["min"]) / (EXTREMAL_FORCES[type]["max"] - EXTREMAL_FORCES[type]["min"])
-
+    # import pdb; pdb.set_trace()
     if type == "balls":
         background = os.path.basename(video_path).split("background_")[1].split("_angle")[0]
         caption = backgrounds_json[background]["optimized_prompt"]

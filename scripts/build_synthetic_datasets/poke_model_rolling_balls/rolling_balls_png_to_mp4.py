@@ -94,7 +94,7 @@ def process_all_render_dirs(base_dir):
     # Find directories that contain params.json files
     processed_count = 0
     error_count = 0
-
+    # import pdb; pdb.set_trace()
     png_dirs = sorted(os.listdir(base_dir))
 
     try:

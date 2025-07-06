@@ -78,7 +78,7 @@ Our convention is that the lower left pixel value is $(0,0)$ and the upper right
 * For both models, the force magnitude is normalized to between $[0,1]$, and the force angle accepts degree values in the interval $[0,360)$, with $0$ indicating a force to the right, $90$ indicating upwards, etc.
 </details>
 
-**Tip:** If you're running this on a server using VSCode, then port forwarding will happen automatically and the flask app will work as intended. However, you can avoid latency issues by running locally—if you’re preprocessing a lot of data you may find the latency burdensome.<br>
+**Tip:** If you're running this on a server using VSCode, then port forwarding will happen automatically and the flask app will work as intended. However, you can avoid latency issues by running locally—if you're preprocessing a lot of data you may find the latency burdensome.<br>
 
 **Tip:** The force prompting models tend to do well at modeling physical phenomena that the base CogVideoX model can already do well at (e.g. swaying plants) and tends to do worse on things CogVideoX doesn't do so well at (e.g. collisions).
 If you find that the force prompting model doesn't do well on a given example, you should consider training a new Force Prompting model on a video generative model with a stronger physics prior and let us know how it goes :)
