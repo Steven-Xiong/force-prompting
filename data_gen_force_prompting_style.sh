@@ -10,7 +10,7 @@ echo "Working directory: $(pwd)"
 BLENDER_PATH="GPT4Motion/PhysicsGeneration/blender-4.4.3-linux-x64/blender"
 
 # Output directory - matching original structure
-OUTPUT_BASE_DIR="scratch/rolling_balls/depth_sketch"
+OUTPUT_BASE_DIR="blender_gen/rolling_balls/depth_sketch"
 mkdir -p $OUTPUT_BASE_DIR
 
 # Number of scenes to generate
@@ -184,15 +184,15 @@ echo "==========================================="
 echo "All scenes rendered! Converting to videos..."
 
 # Convert PNGs to MP4s with enhanced metadata
-python3 << 'EOF'
+python3 << EOF
 import os
 import cv2
 import json
 from pathlib import Path
 import numpy as np
 
-output_base_dir = "scratch/rolling_balls/depth_sketch"
-video_output_dir = "scratch/rolling_balls/videos"
+output_base_dir = "$OUTPUT_BASE_DIR"
+video_output_dir = "$OUTPUT_BASE_DIR/videos"
 os.makedirs(video_output_dir, exist_ok=True)
 
 # Track scene statistics
@@ -346,14 +346,15 @@ EOF
 echo "==========================================="
 echo "Generating enhanced dataset CSV..."
 
-python3 << 'EOF'
+python3 << EOF
 import os
 import csv
 import json
 from pathlib import Path
 
-videos_dir = Path("scratch/rolling_balls/videos")
-output_csv = "scratch/rolling_balls/rolling_balls_with_depth_sketch_enhanced.csv"
+videos_dir = Path("$OUTPUT_BASE_DIR/videos")
+# CSV output path in OUTPUT_BASE_DIR
+output_csv = "$OUTPUT_BASE_DIR/rolling_balls_with_depth_sketch_enhanced.csv"
 
 # Create output directory
 os.makedirs(os.path.dirname(output_csv), exist_ok=True)
@@ -413,8 +414,8 @@ echo "ENHANCED DATA GENERATION COMPLETE!"
 echo ""
 echo "Output locations:"
 echo "  - PNG frames: $OUTPUT_BASE_DIR/"
-echo "  - Videos: scratch/rolling_balls/videos/"
-echo "  - Enhanced CSV: scratch/rolling_balls/rolling_balls_with_depth_sketch_enhanced.csv"
+echo "  - Videos: $OUTPUT_BASE_DIR/videos/"
+echo "  - Enhanced CSV: $OUTPUT_BASE_DIR/rolling_balls_with_depth_sketch_enhanced.csv"
 echo ""
 echo "Enhanced Features:"
 echo "  ✓ Realistic physics-based parameters"

@@ -421,7 +421,7 @@ def clear_scene():
     bpy.ops.object.select_all(action='SELECT')
     bpy.ops.object.delete()
 
-def create_floor(elasticity=0.8):
+def create_floor(elasticity=0.8):  # 设为可调节的参数？
     """Create a floor plane with physics"""
     bpy.ops.mesh.primitive_plane_add(size=10, location=(0, 0, 0))
     floor = bpy.context.active_object

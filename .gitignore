@@ -17,3 +17,5 @@ datasets/wind-force/test/custom
 scripts/.nfsa2a3cc88ecd43d9e0000001f
 hf_temp_datasets
 scratch
+blender_gen
+bjob_logs
